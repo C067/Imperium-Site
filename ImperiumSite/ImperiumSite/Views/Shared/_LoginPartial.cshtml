@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims;
+@using ImperiumSite.Controllers
+
+@if (!User.Identity.IsAuthenticated)
+{  
+    <ul class="navbar-nav mr-2">
+        <li class="nav-item">
+            <a class="nav-link btn btn-primary mr-2 my-sm-0" asp-controller="Account" asp-action="Register" style="color:white">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-success mr-2 my-sm-0" asp-controller="Account" asp-action="Login" style="color:white">Login</a>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav mr-2">
+        <li class="nav-item">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:white">
+                    @{
+                        Manager m = new Manager();
+
+                        PlayersBaseViewModel player = m.PlayerGetById(int.Parse(User.Identity.Name));
+                    }
+                    @player.PLAYER_USERNAME
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item text-center">
+                        @if (player.PLAYER_AVATAR.Length != 0)
+                        {
+                            <img src="/photo/@player.PLAYER_ID" alt="playerImage" class="avatar" height="90" width="100">
+                        }
+                        else
+                        {
+                            <img src="~/Images/default-avatar.png" alt="playerImage" class="avatar" height="90" width="100">
+                        }
+                        <p><b>@player.PLAYER_USERNAME</b></p>
+                    </a>
+                    <a class="dropdown-item" asp-controller="Settings" asp-action="Index">Settings</a>
+                    <a class="dropdown-item" asp-controller="Leaderboard" asp-action="Index">Leaderboard</a>
+                    <a class="dropdown-item" asp-controller="Download" asp-action="Index">Download</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-success" asp-controller="Account" asp-action="LogoffUser" style="color:white">Logout</a>
+        </li>
+    </ul>
+}

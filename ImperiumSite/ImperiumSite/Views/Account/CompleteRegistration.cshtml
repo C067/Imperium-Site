@@ -1,0 +1,79 @@
+﻿@model ImperiumSite.Models.PlayerAddFormViewModel
+
+@{
+    ViewData["Title"] = "CompleteRegistration";
+}
+
+<div id="login">
+    <h2 class="text-center pt-5">Account Creation</h2>
+    <hr />
+
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-8">
+                <div id="login-box" class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <br />
+                            @if (ViewBag.Code != 'E')
+                            {
+                                <form asp-action="CompleteRegistration" enctype="multipart/form-data">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <label asp-for="Email" class="control-label"></label>
+                                        <input asp-for="Email" class="form-control" readonly />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <hr/>
+
+                                    <div class="form-group">
+                                        <label asp-for="Username" class="control-label"></label>
+                                        <input asp-for="Username" class="form-control" />
+                                        <span asp-validation-for="Username" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Password" class="control-label"></label>
+                                        <input asp-for="Password" class="form-control" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ConfirmPassword" class="control-label"></label>
+                                        <input asp-for="ConfirmPassword" class="form-control" />
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label>Choose Image...</label><br/>
+                                            <input asp-for="PlayerImage" accept="image/*" onchange="previewImage(event)" />
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <div id="photoPreview"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="alert alert-primary" role="alert">
+                                    @ViewBag.Message
+                                </div>
+                            }
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/><br/>
+
+<script>
+    function previewImage(event) {
+        // Get a reference to the image element
+        var div = document.querySelector("#photoPreview");
+        // Append an img element
+        div.innerHTML = '<p><img src="' + URL.createObjectURL(event.target.files[0]) + '" alt="" class="img-thumbnail" width="150"></p>'
+    };
+</script>

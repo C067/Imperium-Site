@@ -1,0 +1,44 @@
+﻿@model ImperiumSite.Models.RegisterFormViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div id="login">
+    <h2 class="text-center pt-5">Sign Up</h2>
+    <hr />
+
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-8">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" asp-action="Register">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group float-right">
+                                <input type="submit" name="submit" class="btn btn-success btn-md" value="Send Email">
+                            </div>
+                        </div>
+                        @if (Model.message != null)
+                        {
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-primary" role="alert">
+                                        @Model.message
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

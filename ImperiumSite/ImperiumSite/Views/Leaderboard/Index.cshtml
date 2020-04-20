@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ImperiumSite.Models.LeaderboardBaseViewModel>
+@using ImperiumSite.Controllers;
+
+@{
+    ViewData["Title"] = "Index";
+
+    Manager m = new Manager();
+
+    var myLeaderboard = m.LeaderboardGetByPlayerId(int.Parse(User.Identity.Name));
+    myLeaderboard.Player = m.PlayerGetById(myLeaderboard.PLAYER_ID);
+
+    var tmp = Model.ToArray();
+    var myRank = 0;
+
+    for (int cnt = 0; cnt < tmp.Length; cnt++)
+    {
+        if (tmp[cnt].LEADERBOARD_ID == myLeaderboard.LEADERBOARD_ID)
+        {
+            myRank = cnt + 1;
+        }
+    }
+}
+
+<script src="~/js/site.js"></script>
+
+<h1 class="text-center" style="font-family:Game_Time">My Leaderboard Rank</h1>
+
+<div class="container" style="background-color:rgba(230, 215, 218, 0.90); font-size:16px; border-color:black; border-style: solid; border-width:thick; border-radius:5px">
+    <div class="row">
+        <div class="col-md-2" style="border-right: 1px solid black;">
+            <br />
+            <b>Rank: @myRank</b>
+        </div>
+        <div class="col-md-6" style="border-right: 1px solid black;">
+            @if (myLeaderboard.Player.PLAYER_AVATAR.Length != 0)
+            {
+                <img src="/photo/@myLeaderboard.PLAYER_ID" alt="playerImage" class="avatar" height="90" width="100">
+            }
+            else
+            {
+                <img src="~/Images/default-avatar.png" alt="playerImage" class="avatar" height="90" width="100">
+            }
+            <b>@myLeaderboard.Player.PLAYER_USERNAME</b><br />
+        </div>
+        <div class="col-md-2 text-center" style="border-right: 1px solid black;">
+            <br />
+            <b>Level: @myLeaderboard.LEADERBOARD_LEVEL</b><br />
+            <b>Win Rate: @myLeaderboard.LEADERBOARD_WINRATE%</b>
+        </div>
+        <div class="col-md-2 text-center">
+            <br />
+            <b>Wins: @myLeaderboard.LEADERBOARD_WINS</b><br />
+            <b>Losses: @myLeaderboard.LEADERBOARD_LOSSES</b>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<h1 class="text-center" style="font-family:Game_Time">All Leaderboard Ranks</h1>
+
+<div class="container pt-2 pb-2" style="background-color:rgba(186, 185, 129, 0.81); border-radius: 5px;">
+    <table id="leaderboardTable" class="" style="width:100%">
+        <thead style="background-color:rgba(230, 215, 218, 0.90);">
+            <tr>
+                <th class="text-center" style="border-color:black; border-style: solid; border-width:thin; border-radius: 5px;">Rankings</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int cnt = 0; cnt < tmp.Length; cnt++)
+            {
+                var leaderTemp = tmp[cnt];
+                leaderTemp.Player = m.PlayerGetById(tmp[cnt].PLAYER_ID);
+                var rank = cnt + 1;
+
+                <tr>
+                    <td>
+                        <div class="row" style="background-color:rgba(230, 215, 218, 0.90); font-size:16px; border-color:black; border-style: solid; border-width:thin; border-radius:5px">
+                            <div class="col-md-2" style="border-right: 1px solid black;">
+                                <br />
+                                <b>Rank: @rank</b>
+                            </div>
+                            <div class="col-md-6" style="border-right: 1px solid black;">
+                                @if (leaderTemp.Player.PLAYER_AVATAR.Length != 0)
+                                {
+                                    <img src="/photo/@leaderTemp.PLAYER_ID" alt="playerImage" class="avatar" height="90" width="100">
+                                }
+                                else
+                                {
+                                    <img src="~/Images/default-avatar.png" alt="playerImage" class="avatar" height="90" width="100">
+                                }
+                                <b>@leaderTemp.Player.PLAYER_USERNAME</b><br />
+                            </div>
+                            <div class="col-md-2 text-center" style="border-right: 1px solid black;">
+                                <br />
+                                <b>Level: @leaderTemp.LEADERBOARD_LEVEL</b><br />
+                                <b>Win Rate: @leaderTemp.LEADERBOARD_WINRATE%</b>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <br />
+                                <b>Wins: @leaderTemp.LEADERBOARD_WINS</b><br />
+                                <b>Losses: @leaderTemp.LEADERBOARD_LOSSES</b>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<br/>
