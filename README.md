@@ -3,7 +3,7 @@ This ASP.NET Core web application handles the registration and account managemen
 
 ## To View the Application
 1. Download or Clone the Repo 
-2. Launch the Application in Visual Studio or use the command "dotnet run" while in the ImperiumSite Folder
+2. Launch the Application in Visual Studio or use the command "dotnet run" while in the ImperiumSite/ImperiumSite/ Folder
 
 ## About Page
 This page tells all Users the general concept of the game. The general concept will include; features, mechanics, and functionality. 
