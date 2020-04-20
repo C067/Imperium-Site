@@ -385,3 +385,44 @@ a.list-group-item, .list-group-item-action {
     max-width: 150px;
     max-height: 150px;
 }
+
+.thumbnail {
+    position: relative;
+    display: inline-block;
+}
+
+.caption {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+.caption a {
+    text-decoration: none;
+    color:white;
+}
+
+.rotateLeft {
+    -ms-transform: skew(5deg);
+    transform: skew(5deg);
+}
+
+.rotateRight {
+    -ms-transform: skew(-5deg);
+    transform: skew(-5deg);
+}
+
+.devCard {
+    position: relative;
+    right: 0;
+    background-color: rgba(118, 147, 196, 0.90);
+    border: 3px solid black;
+    border-radius: 15px;
+    max-width: 600px;
+    padding: 15px 20px 15px 20px;
+}

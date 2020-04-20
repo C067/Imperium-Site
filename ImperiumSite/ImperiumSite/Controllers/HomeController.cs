@@ -32,6 +32,16 @@ namespace ImperiumSite.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View("AboutGame");
+        }
+
+        public IActionResult Developers()
+        {
+            return View("AboutDev");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

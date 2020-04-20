@@ -7788,11 +7788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c0679\\Desktop\\School\\Winter 2020\\PRJ566\\Imperium Website\\ImperiumSite\\ImperiumSite\\ImperiumSite.csproj",
+      "projectUniqueName": "C:\\Users\\c0679\\Documents\\GitHub\\Imperium-Site\\ImperiumSite\\ImperiumSite\\ImperiumSite.csproj",
       "projectName": "ImperiumSite",
-      "projectPath": "C:\\Users\\c0679\\Desktop\\School\\Winter 2020\\PRJ566\\Imperium Website\\ImperiumSite\\ImperiumSite\\ImperiumSite.csproj",
+      "projectPath": "C:\\Users\\c0679\\Documents\\GitHub\\Imperium-Site\\ImperiumSite\\ImperiumSite\\ImperiumSite.csproj",
       "packagesPath": "C:\\Users\\c0679\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\c0679\\Desktop\\School\\Winter 2020\\PRJ566\\Imperium Website\\ImperiumSite\\ImperiumSite\\obj\\",
+      "outputPath": "C:\\Users\\c0679\\Documents\\GitHub\\Imperium-Site\\ImperiumSite\\ImperiumSite\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
