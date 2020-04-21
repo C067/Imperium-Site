@@ -212,28 +212,21 @@ namespace ImperiumSite.Controllers
         {
             var oPlayer = ds.Players.Find(player.PLAYER_ID);
 
-            try
+            if (oPlayer != null)
             {
-                if (oPlayer != null)
+                byte[] photoBytes = new byte[file.Length];
+
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    byte[] photoBytes = new byte[file.Length];
-
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        file.OpenReadStream().CopyTo(ms);
-                        photoBytes = ms.ToArray();
-                    }
-
-                    player.PLAYER_AVATAR = photoBytes;
-                    player.PLAYER_AVATARTYPE = file.ContentType;
-
-                    ds.Entry(oPlayer).CurrentValues.SetValues(player);
-                    ds.SaveChanges();
+                    file.OpenReadStream().CopyTo(ms);
+                    photoBytes = ms.ToArray();
                 }
-            }
-            catch (Exception ex)
-            {
 
+                player.PLAYER_AVATAR = photoBytes;
+                player.PLAYER_AVATARTYPE = file.ContentType;
+
+                ds.Entry(oPlayer).CurrentValues.SetValues(player);
+                ds.SaveChanges();
             }
         }
 
@@ -262,7 +255,7 @@ namespace ImperiumSite.Controllers
                 {
                     ds.SaveChanges();
                 }
-                catch (Exception ex)
+                catch
                 {
                     addedItem = null;
                 }
@@ -288,7 +281,15 @@ namespace ImperiumSite.Controllers
             }
             else if (register.VERIFIED == false)
             {
-                return 'C';
+                var updatedRegister = register;
+
+                updatedRegister.TOKEN = newRegister.TOKEN;
+                updatedRegister.TOKENEXPIRY = newRegister.TOKENEXPIRY;
+
+                ds.Entry(register).CurrentValues.SetValues(updatedRegister);
+                ds.SaveChanges();
+
+                return 'U';
             }
             else
             {

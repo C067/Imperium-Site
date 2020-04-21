@@ -69,7 +69,7 @@ namespace ImperiumSite.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 var form = new LoginFormViewModel();
 
@@ -113,10 +113,10 @@ namespace ImperiumSite.Controllers
                     SendEmailToUser(newUser.Email, register, 'A', null);
                     emailStatusMessage = "Email has been sent to: " + newUser.Email + "! Please check your email for further instructions.";
                 }
-                else if (result == 'C')
-                {
-                    emailStatusMessage = "It seems an email has already been sent to: " + newUser.Email + "! Please check your email for further instructions.";
-                }
+                //else if (result == 'C')
+                //{
+                //    emailStatusMessage = "It seems an email has already been sent to: " + newUser.Email + "! Please check your email for further instructions.";
+                //}
                 else if (result == 'A')
                 {
                     emailStatusMessage = "It seems you already have an account with us: " + newUser.Email + "! Please sign in.";
@@ -131,7 +131,7 @@ namespace ImperiumSite.Controllers
                     emailStatusMessage = "Oops! There was a problem on our end. Please check back later!";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 emailStatusMessage = "There was a problem sending the email to: " + newUser.Email + "! Please check your email and try again.";
             }
@@ -380,7 +380,7 @@ namespace ImperiumSite.Controllers
                         ViewBag.Message = "An email has been sent to the user. Please check your email to change your password.";
                         return View(form);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         ViewBag.Message = "There was a problem sending the email. Please try again later.";
                         return View(form);
@@ -395,7 +395,7 @@ namespace ImperiumSite.Controllers
                         ViewBag.Message = "An email has been sent to the user. Please check your email to change your password.";
                         return View(form);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         ViewBag.Message = "There was a problem sending the email. Please try again later.";
                         return View(form);

@@ -407,14 +407,14 @@ a.list-group-item, .list-group-item-action {
     color:white;
 }
 
-.rotateLeft {
-    -ms-transform: skew(5deg);
-    transform: skew(5deg);
+.mainPageImage {
+    width: 30%;
+    border: 3px solid black;
+    border-radius: 5px;
 }
 
-.rotateRight {
-    -ms-transform: skew(-5deg);
-    transform: skew(-5deg);
+.mainPageImage:hover {
+    transform: scale(1.5);
 }
 
 .devCard {
@@ -424,5 +424,19 @@ a.list-group-item, .list-group-item-action {
     border: 3px solid black;
     border-radius: 15px;
     max-width: 600px;
+    padding: 15px 20px 15px 20px;
+}
+
+.devLink {
+    text-decoration: none;
+    color:white;
+}
+
+.creditCard {
+    position: relative;
+    right: 0;
+    background-color: rgba(118, 147, 196, 0.90);
+    border: 3px solid black;
+    border-radius: 15px;
     padding: 15px 20px 15px 20px;
 }
