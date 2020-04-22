@@ -27,7 +27,10 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(82, 120, 183, 0.76)">
-            <a class="navbar-brand" asp-action="Index" asp-controller="Home">Imperium</a>
+            <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+                @*Imperium*@
+                <img src="~/Images/Logo.png" style="width:175px;" />
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,10 +60,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer" style="background-color: rgba(82, 120, 183, 0.76);">
         <div class="container">
-            <p class="copyright">
-                &copy; 2020 - ImperiumSite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <p class="copyright text-center">
+                <span class="text-white">&copy; 2020 - Imperium</span>
             </p>
         </div>
     </footer>
