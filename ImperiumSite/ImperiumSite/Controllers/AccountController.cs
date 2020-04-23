@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Mail;
 using System.Web.Helpers;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ImperiumSite.Controllers
 {
@@ -222,14 +223,14 @@ namespace ImperiumSite.Controllers
             mm.To.Add(email);
             mm.Subject = subject;
             mm.Body = message;
-            mm.From = new MailAddress("callumadodge@gmail.com");
+            mm.From = new MailAddress("imperiumdevs@gmail.com");
             mm.IsBodyHtml = true;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com");
             smtp.Port = 587;
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential("callumadodge@gmail.com", "qkbtn6f5");
+            smtp.Credentials = new System.Net.NetworkCredential("imperiumdevs@gmail.com", "Imperium1999");
 
             smtp.Send(mm);
         }
@@ -315,7 +316,39 @@ namespace ImperiumSite.Controllers
 
             try
             {
-                var addedPlayer = m.PlayerAdd(newPlayer);                
+                //Regex 
+                Regex numEx = new Regex(newPlayer.numPattern);
+                Regex upperEx = new Regex(newPlayer.upperPattern);
+                Regex lowerEx = new Regex(newPlayer.lowerPattern);
+                Regex specialEx = new Regex(newPlayer.specialPattern);
+                newPlayer.PasswordErrorList = new List<string>();
+
+                if (!numEx.IsMatch(newPlayer.Password))
+                {
+                    newPlayer.PasswordErrorList.Add("-Password must contain at least one number");
+                }
+                if (!upperEx.IsMatch(newPlayer.Password))
+                {
+                    newPlayer.PasswordErrorList.Add("-Password must contain at least one uppercase letter");
+                }
+                if (!lowerEx.IsMatch(newPlayer.Password))
+                {
+                    newPlayer.PasswordErrorList.Add("-Password must contain at least one lowercase letter");
+                }
+                if (!specialEx.IsMatch(newPlayer.Password))
+                {
+                    newPlayer.PasswordErrorList.Add("-Password must contain at least one special character");
+                }
+
+                if (newPlayer.PasswordErrorList.Count != 0)
+                {
+                    PlayerAddFormViewModel playerForm = new PlayerAddFormViewModel(newPlayer.Email);
+                    ViewBag.Code = 'O';
+                    playerForm.PasswordErrorList = newPlayer.PasswordErrorList;
+                    return View(playerForm);
+                }
+
+                var addedPlayer = m.PlayerAdd(newPlayer);                                
 
                 if (addedPlayer == false)
                 {
@@ -333,6 +366,7 @@ namespace ImperiumSite.Controllers
                     }
                     else
                     {
+                        ViewBag.Code = 'O';
                         ViewBag.Message = "Oops, something went wrong on our end! Please try again later.";
                         return View(newPlayer);
                     }
@@ -340,7 +374,16 @@ namespace ImperiumSite.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Message = "Oops, something went wrong on our end. " + ex.Message;
+                ViewBag.Code = 'O';
+                if (ex.InnerException != null)
+                {
+                    ViewBag.Message = "Oops, something went wrong. " + ex.InnerException.Message;
+                }
+                else
+                {
+                    ViewBag.Message = "Oops, something went wrong on our end. " + ex.Message;
+                }
+                
                 return View(newPlayer);
             }
         }
