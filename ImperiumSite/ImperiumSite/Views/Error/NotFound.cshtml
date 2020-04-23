@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Not Found";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="notfound">
+                <!-- This templates was made by Colorlib (https://colorlib.com) -->
+                <div class="notfound">
+                    <div class="notfound-404">
+                        @if (ViewBag.Code == 404)
+                        {
+                            <h1>4<span></span>4</h1>
+                        }
+                        else if (ViewBag.Code == 500)
+                        {
+                            <h1>5<span></span>0</h1>
+                        }
+                        else
+                        {
+                            <h1>ERR<span></span>R</h1>
+                        }
+                    </div>
+                    <div class="aboutCard">
+                        <h2>Oops! Not Found</h2>
+                        <p>@ViewBag.ErrorMessage</p>
+                        <p>@ViewBag.RouteOfException</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

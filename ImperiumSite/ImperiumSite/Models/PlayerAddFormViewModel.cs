@@ -14,7 +14,7 @@ namespace ImperiumSite.Models
         public string numPattern = @"(?=.*\d)";
         public string lowerPattern = @"(?=.*[a-z])";
         public string upperPattern = @"(?=.*[A-Z])";
-        public string specialPattern = @"(?!.*[&%$])";
+        public string specialPattern = @"(?=.*[@$!%*#?&])";
 
         public PlayerAddFormViewModel()
         {

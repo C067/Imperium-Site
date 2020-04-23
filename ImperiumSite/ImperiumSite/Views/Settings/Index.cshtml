@@ -149,8 +149,19 @@
                     <div class="col-md-12 text-center">
                         @if (ViewBag.PasswordMessage != null)
                         {
+                        <div class="alert alert-info" role="alert">                            
+                            @ViewBag.PasswordMessage
+                        </div>
+                        }
+                        else if (ViewBag.PasswordError != null)
+                        {
                             <div class="alert alert-info" role="alert">
-                                @ViewBag.PasswordMessage
+                                <span>Error List:</span><br/>
+                                
+                                @foreach (var item in ViewBag.PasswordError)
+                                {
+                                    <span>@item</span><br/>
+                                }
                             </div>
                         }
                     </div>

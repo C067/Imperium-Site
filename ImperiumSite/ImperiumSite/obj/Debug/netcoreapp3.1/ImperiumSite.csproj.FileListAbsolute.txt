@@ -312,7 +312,6 @@ C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debu
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Leaderboard\Index.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Settings\Index.cshtml.g.cs
-C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -326,3 +325,5 @@ C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debu
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.pdb
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\AboutGame.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\AboutDev.cshtml.g.cs
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Error\NotFound.cshtml.g.cs

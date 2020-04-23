@@ -9,7 +9,7 @@ namespace ImperiumSite.Models
     public class RegisterFormViewModel
     {
         [Required]
-        [MinLength(8, ErrorMessage = "Email must contain at least 8 characters"), MaxLength(50, ErrorMessage = "Email must not contain more than 50 characters")]
+        [MinLength(8, ErrorMessage = "Email must contain at least 8 characters"), MaxLength(265, ErrorMessage = "Email must not contain more than 265 characters")]
         public string Email { get; set; }
 
         public string message { get; set; }
