@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace ImperiumSite
@@ -34,6 +35,8 @@ namespace ImperiumSite
                     config.LoginPath = "/Account/Login";
                     config.ExpireTimeSpan = TimeSpan.FromHours(2);
                 });
+
+            services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
 
             services.AddControllersWithViews();
         }
