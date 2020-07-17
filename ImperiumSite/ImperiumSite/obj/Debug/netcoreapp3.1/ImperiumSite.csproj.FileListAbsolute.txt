@@ -292,7 +292,6 @@ C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\bin\Debu
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.csprojAssemblyReference.cache
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\staticwebassets\ImperiumSite.StaticWebAssets.Manifest.cache
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\staticwebassets\ImperiumSite.StaticWebAssets.xml
-C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.RazorAssemblyInfo.cache
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.RazorAssemblyInfo.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.AssemblyInfoInputs.cache
@@ -327,3 +326,8 @@ C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debu
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\AboutDev.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\Razor\Views\Error\NotFound.cshtml.g.cs
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
+C:\Users\c0679\Documents\GitHub\Imperium-Site\ImperiumSite\ImperiumSite\obj\Debug\netcoreapp3.1\ImperiumSite.MvcApplicationPartsAssemblyInfo.cache

@@ -12,6 +12,9 @@ using System.Net.Mail;
 using System.Web.Helpers;
 using System.IO;
 using System.Text.RegularExpressions;
+using SendGrid;
+using SendGrid.Helpers;
+using SendGrid.Helpers.Mail;
 
 namespace ImperiumSite.Controllers
 {
@@ -218,21 +221,35 @@ namespace ImperiumSite.Controllers
                     "This link will expire 24 hours from the time it was sent.<br/><br/>" +
                     "Have fun!";
             }
-            
-            MailMessage mm = new MailMessage();
-            mm.To.Add(email);
-            mm.Subject = subject;
-            mm.Body = message;
-            mm.From = new MailAddress("imperiumdevs@gmail.com");
-            mm.IsBodyHtml = true;
 
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential("imperiumdevs@gmail.com", "Imperium1999");
+            //MailMessage mm = new MailMessage();
+            //mm.To.Add(email);
+            //mm.Subject = subject;
+            //mm.Body = message;
+            //mm.From = new MailAddress("imperiumdevs@gmail.com");
+            //mm.IsBodyHtml = true;
 
-            smtp.Send(mm);
+            //SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            //smtp.Port = 587;
+            //smtp.UseDefaultCredentials = false;
+            //smtp.EnableSsl = true;
+            //smtp.Credentials = new System.Net.NetworkCredential("imperiumdevs@gmail.com", "Imperium1999");
+
+            //smtp.SendMailAsync(mm);
+
+            Execute(email, subject, message).Wait();
+        }
+
+        public async Task Execute(string email, string sub, string message)
+        {
+            var apiKey = Environment.GetEnvironmentVariable("Imperium-Site-API");
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("imperiumdevs@gmail.com", "Imperium Devs");
+            var subject = sub;
+            var to = new EmailAddress(email, "New User");
+            var htmlContent = message;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, "", htmlContent);
+            var response = await client.SendEmailAsync(msg);
         }
 
         public void AuthenticateUser(PlayersBaseViewModel player)
