@@ -2,6 +2,11 @@
 This ASP.NET Core web application handles the registration and account management for all Users that would want to play the Imperium Game. This websites allows a user to create and verify an account they would like to use while playing the game. 
 
 ## To View the Application
+
+### Website
+* https://imperium-site.herokuapp.com/
+
+### Local
 1. Download or Clone the Repo 
 2. Launch the Application in Visual Studio or use the command "dotnet run" while in the ImperiumSite/ImperiumSite/ Folder
 
