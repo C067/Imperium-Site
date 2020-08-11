@@ -242,7 +242,7 @@ namespace ImperiumSite.Controllers
 
         public async Task Execute(string email, string sub, string message)
         {
-            var apiKey = Environment.GetEnvironmentVariable("Imperium-Site-API");
+            var apiKey = "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";
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("imperiumdevs@gmail.com", "Imperium Devs");
             var subject = sub;
