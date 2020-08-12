@@ -411,7 +411,8 @@ a.list-group-item, .list-group-item-action {
 }
 
 .mainPageImage {
-    width: 30%;
+    width: 32%;
+    height: 125%;
     border: 3px solid black;
     border-radius: 5px;
 }

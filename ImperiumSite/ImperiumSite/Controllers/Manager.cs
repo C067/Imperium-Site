@@ -335,8 +335,8 @@ namespace ImperiumSite.Controllers
         public IEnumerable<LeaderboardBaseViewModel> LeaderboardGetAll()
         {
             return mapper.Map<IEnumerable<Leaderboard>, IEnumerable<LeaderboardBaseViewModel>>(ds.Leaderboard.OrderByDescending(l => l.LEADERBOARD_LEVEL)
-                                                                                                             .ThenByDescending(l => l.LEADERBOARD_WINRATE)
-                                                                                                             .ThenByDescending(l => l.LEADERBOARD_WINS));
+                                                                                                             .ThenByDescending(l => l.LEADERBOARD_WINS)
+                                                                                                             .ThenByDescending(l => l.LEADERBOARD_WINRATE));
         }
 
         public LeaderboardBaseViewModel LeaderboardGetByPlayerId(int id)
