@@ -222,21 +222,6 @@ namespace ImperiumSite.Controllers
                     "Have fun!";
             }
 
-            //MailMessage mm = new MailMessage();
-            //mm.To.Add(email);
-            //mm.Subject = subject;
-            //mm.Body = message;
-            //mm.From = new MailAddress("imperiumdevs@gmail.com");
-            //mm.IsBodyHtml = true;
-
-            //SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-            //smtp.Port = 587;
-            //smtp.UseDefaultCredentials = false;
-            //smtp.EnableSsl = true;
-            //smtp.Credentials = new System.Net.NetworkCredential("imperiumdevs@gmail.com", "Imperium1999");
-
-            //smtp.SendMailAsync(mm);
-
             Execute(email, subject, message).Wait();
         }
 
